@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 	function deleteContact() {
-		alert("are you sure conform to delet?, if yes click ok.");
+		alert("are you sure conform to delet contact?, if yes click ok.");
 	}
 </script>
 </head>

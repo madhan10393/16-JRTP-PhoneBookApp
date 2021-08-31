@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 @Table(name = "CONTACT_INFO")
 public class ContactInfo {
@@ -29,10 +32,12 @@ public class ContactInfo {
 	@Column(name = "ACTIVE_SW")
 	private Character ActiveSwitch;
 
-	@Column(name = "CREATED_DATE")
+	@Column(name = "CREATED_DATE", updatable = false)
+	@CreationTimestamp
 	private LocalDate createdDate;
 
-	@Column(name = "UPDATED_DATE")
+	@Column(name = "UPDATED_DATE", insertable = false)
+	@UpdateTimestamp
 	private LocalDate updatedDate;
 
 	public Integer getContactId() {
