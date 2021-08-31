@@ -10,7 +10,7 @@ public interface ContactService {
 
 	public List<ContactInfo> getAllContacts();
 
-	public ContactInfo editByContactId(Integer cId);
+	public ContactInfo getByContactId(Integer cId);
 
 	public boolean deleteByContactId(Integer cId);
 }

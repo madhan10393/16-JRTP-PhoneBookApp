@@ -31,31 +31,29 @@ public class ContactServiceImpl implements ContactService {
 	// fetch all records
 	@Override
 	public List<ContactInfo> getAllContacts() {
-		List<ContactInfo> contactInfos = new ArrayList<ContactInfo>();
-		contactRepository.findAll().forEach(contactInfo -> contactInfos.add(contactInfo));
-		return contactInfos;
+		return contactRepository.findAll();
 
 	}
 
 	// updated a record based on id
 	@Override
-	public ContactInfo editByContactId(Integer cId) {
+	public ContactInfo getByContactId(Integer cId) {
 		Optional<ContactInfo> findById = contactRepository.findById(cId);
-		if (findById.isPresent()) {
-			return findById.get();
-		} else {
-			return null;
-		}
-
+		return findById.isPresent() ? findById.get() : null;
+		
+		/*
+		 * if(findById.isPresent()) { ContactInfo contactInfo = findById.get(); return
+		 * contactInfo; } return null;
+		 */
 	}
 
 	// deleted a record based on id
 	@Override
 	public boolean deleteByContactId(Integer cId) {
-		try {
+		boolean status = contactRepository.existsById(cId);
+		if (status) {
 			contactRepository.deleteById(cId);
-		} catch (Exception e) {
-			e.printStackTrace();
+			return true;
 		}
 
 		return false;

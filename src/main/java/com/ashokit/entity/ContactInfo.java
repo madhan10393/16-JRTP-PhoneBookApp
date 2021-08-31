@@ -20,8 +20,11 @@ public class ContactInfo {
 	@Column(name = "CONTACT_NAME")
 	private String contactName;
 
+	@Column(name = "CONTACT_EMAIL")
+	private String contactEmail;
+
 	@Column(name = "CONTACT_NUMBER")
-	private Long ContactNumber;
+	private Long contactNumber;
 
 	@Column(name = "ACTIVE_SW")
 	private Character ActiveSwitch;
@@ -48,12 +51,20 @@ public class ContactInfo {
 		this.contactName = contactName;
 	}
 
+	public String getContactEmail() {
+		return contactEmail;
+	}
+
+	public void setContactEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
+	}
+
 	public Long getContactNumber() {
-		return ContactNumber;
+		return contactNumber;
 	}
 
 	public void setContactNumber(Long contactNumber) {
-		ContactNumber = contactNumber;
+		this.contactNumber = contactNumber;
 	}
 
 	public Character getActiveSwitch() {
@@ -82,9 +93,9 @@ public class ContactInfo {
 
 	@Override
 	public String toString() {
-		return "ContactInfo [contactId=" + contactId + ", contactName=" + contactName + ", ContactNumber="
-				+ ContactNumber + ", ActiveSwitch=" + ActiveSwitch + ", createdDate=" + createdDate + ", updatedDate="
-				+ updatedDate + "]";
+		return "ContactInfo [contactId=" + contactId + ", contactName=" + contactName + ", contactEmail=" + contactEmail
+				+ ", contactNumber=" + contactNumber + ", ActiveSwitch=" + ActiveSwitch + ", createdDate=" + createdDate
+				+ ", updatedDate=" + updatedDate + "]";
 	}
 
 }
